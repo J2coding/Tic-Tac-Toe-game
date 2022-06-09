@@ -2,7 +2,9 @@
 Created by: Josephine Mueni 
 Date: 9/6/2022
 """
+from multiprocessing.sharedctypes import copy
 from operator import length_hint
+from pickle import TRUE
 import random
 import re
 #A tic tac toe game in which two players seek in
@@ -24,7 +26,7 @@ def main(board):
 	print(' | | ')
 	print('/n')
 
-def clear_input():
+def player_input():
 	#Gets player inputs
 	marker = ' '
 	while marker != 'X'  and marker != 'O':
@@ -92,9 +94,102 @@ def choose_random(board,movesList):
 	if len(possibleMoves) != 0: 
 		return random.choice(possibleMoves)
 	else:
-		return None:
+		return None
 
-def computer_move():
+def computer_move(board,computerMarker):
+	#computer will choose a random move from available moves
+	if computerMarker =='X':
+		playerMarker = 'O'
+
+	else:
+		playerMarker = 'X'
+
+	for i in range(1,10):
+		copy = get_board_copy(board)
+		if space_free(copy,i):
+			make_move(copy,computerMarker,i)
+			if check_win(copy,computerMarker):
+				return i
+	move = choose_random(board,[1,3,7,9])
+	if move != None:
+		return move
+	if space_free(board,5):
+		return 5,
+	return choose_random(board,[2,4,6,8])
+	
+def board_full(board):
+	#return true is every space on the board has been taken
+	for i in range(1,10):
+		if space_free(board,i):
+			return False
+	return True
+
+print('welcome to Tic Tac Toe')
+
+while True:
+	#reset the board
+	theBoard = [' ']*10
+	playerMarker,computerMarker = player_input()
+	turn = who_goes_first()
+	print(turn + 'will go first')
+	gamePlaying = TRUE
+
+
+	while gamePlaying:
+		if turn == 'player':
+			#players turn
+			main(theBoard)
+			move = get_player_move(theBoard)
+
+			make_move(theBoard,playerMarker,move)
+
+			if check_win(theBoard,playerMarker):
+				main(theBoard)
+				print('Congratulation you have won the game!')
+
+				gamePlaying = False
+			else:
+				if board_full(theBoard):
+					main(theBoard)
+					print('The game is tie')
+					break
+				else:
+					turn = 'computer'
+			
+		else:
+			#computers turn to play
+			move = computer_move(theBoard,computerMarker)
+			make_move(theBoard,computerMarker,move)
+			if check_win(theBoard,computerMarker):
+				main(theBoard)
+				print('The computer has beaten! you lose')
+				gamePlaying = False
+			else:
+				if board_full(theBoard):
+					main(theBoard)
+					print('the game is tie')
+					break
+				else:
+					turn = 'player'
+		
+	if not play_again():
+		break
+	
+
+
+
+			
+
+
+
+
+		
+	
+
+	
+
+
+
 
 
 
