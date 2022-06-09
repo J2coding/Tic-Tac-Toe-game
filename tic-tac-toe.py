@@ -2,9 +2,7 @@
 Created by: Josephine Mueni 
 Date: 9/6/2022
 """
-from multiprocessing.sharedctypes import copy
-from operator import length_hint
-from pickle import TRUE
+
 import random
 
 #A tic tac toe game in which two players seek in
@@ -132,7 +130,7 @@ while True:
 	playerMarker,computerMarker = player_input()
 	turn = who_goes_first()
 	print(turn + 'will go first')
-	gamePlaying = TRUE
+	gamePlaying = True
 
 
 	while gamePlaying:
