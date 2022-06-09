@@ -22,7 +22,7 @@ def main(board):
 	print(' | | ')
 	print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
 	print(' | | ')
-	print('/n')
+	
 
 def player_input():
 	#Gets player inputs
