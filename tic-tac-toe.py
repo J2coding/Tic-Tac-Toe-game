@@ -6,7 +6,7 @@ from multiprocessing.sharedctypes import copy
 from operator import length_hint
 from pickle import TRUE
 import random
-import re
+
 #A tic tac toe game in which two players seek in
 # alternate turns to complete a row,column or
 #a diagonal with either three x's or three o's 
