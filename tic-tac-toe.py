@@ -9,20 +9,27 @@ import random
 # alternate turns to complete a row,column or
 #a diagonal with either three x's or three o's 
 # drawn in the spaces of a grid of nine squares.
-def main(board):
+def main(board ):
+
 	print('Welcome to Tic Tac Toe game')
-	print(' | | ')
-	print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9])
-	print(' | | ')
-	print('--------------')
-	print(' | | ')
-	print(' ' + board[4] + ' | ' + board[5] + ' | ' + board[6])
-	print(' | | ')
-	print('--------------')
-	print(' | | ')
-	print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
-	print(' | | ')
-	
+	board = ['X','2','3','4','5','6','7','8','9']
+	display_board(board)
+
+def display_board(board):
+	print(f'{board[0]}|2|3')
+	print(f'-+-+-')
+	print(f'4|5|6')
+	print('-+-+-')
+	print(f'7|8|9')
+
+
+
+
+
+
+
+
+
 
 def player_input():
 	#Gets player inputs
