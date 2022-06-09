@@ -49,7 +49,7 @@ def play_again():
 
 def make_move(board,marker,position):
 	#place maker on the board
-	board[position] = marker
+	board[position-1] = marker
 
 def check_win(board,marker):
 	#check if player have won
