@@ -12,24 +12,15 @@ import random
 def main(board ):
 
 	print('Welcome to Tic Tac Toe game')
-	board = ['X','2','3','4','5','6','7','8','9']
+	#board = ['1','2','3','4','5','6','7','8','9']
 	display_board(board)
 
 def display_board(board):
-	print(f'{board[0]}|2|3')
+	print(f'{board[0]}|{board[1]}|{board[2]}')
 	print(f'-+-+-')
-	print(f'4|5|6')
+	print(f'{board[3]}|{board[4]}|{board[5]}')
 	print('-+-+-')
-	print(f'7|8|9')
-
-
-
-
-
-
-
-
-
+	print(f'{board[6]}|{board[7]}|{board[8]}')
 
 def player_input():
 	#Gets player inputs
